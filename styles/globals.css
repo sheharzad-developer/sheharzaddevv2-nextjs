@@ -1,0 +1,1021 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400..700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Beautiful Glassmorphism Effects */
+@layer components {
+	.glass-card {
+		background: rgba(255, 255, 255, 0.25);
+		backdrop-filter: blur(5px);
+		-webkit-backdrop-filter: blur(5px);
+		border-radius: 20px;
+		border: 1px solid rgba(255, 255, 255, 0.3);
+		box-shadow: 
+			0 8px 32px rgba(0, 0, 0, 0.1),
+			inset 0 1px 0 rgba(255, 255, 255, 0.5),
+			inset 0 -1px 0 rgba(255, 255, 255, 0.1),
+			inset 0 0 8px 4px rgba(255, 255, 255, 0.4);
+		position: relative;
+		overflow: hidden;
+	}
+
+	.glass-card::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		height: 1px;
+		background: linear-gradient(
+			90deg,
+			transparent,
+			rgba(255, 255, 255, 0.8),
+			transparent
+		);
+	}
+
+	.glass-card::after {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 1px;
+		height: 100%;
+		background: linear-gradient(
+			180deg,
+			rgba(255, 255, 255, 0.8),
+			transparent,
+			rgba(255, 255, 255, 0.3)
+		);
+	}
+	
+	.glass-card-dark {
+		background: rgba(0, 0, 0, 0.2);
+		backdrop-filter: blur(20px);
+		-webkit-backdrop-filter: blur(20px);
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		box-shadow: 
+			0 8px 32px 0 rgba(0, 0, 0, 0.3),
+			inset 0 1px 0 0 rgba(255, 255, 255, 0.05);
+	}
+	
+	.glass-button {
+		background: rgba(255, 255, 255, 0.25);
+		backdrop-filter: blur(15px);
+		-webkit-backdrop-filter: blur(15px);
+		border: 1px solid rgba(255, 255, 255, 0.3);
+		transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+	}
+	
+	.glass-button:hover {
+		background: rgba(255, 255, 255, 0.35);
+		border-color: rgba(255, 255, 255, 0.5);
+		transform: translateY(-2px);
+		box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+	}
+	
+	.glass-bg {
+		background: linear-gradient(135deg, 
+			rgba(255, 255, 255, 0.1),
+			rgba(255, 255, 255, 0.05)
+		);
+		backdrop-filter: blur(25px);
+		-webkit-backdrop-filter: blur(25px);
+	}
+	
+	/* Enhanced glass card variations */
+	.glass-card-project {
+		background: rgba(255, 255, 255, 0.25);
+		backdrop-filter: blur(10px);
+		-webkit-backdrop-filter: blur(10px);
+		border-radius: 20px;
+		border: 1px solid rgba(255, 255, 255, 0.3);
+		box-shadow: 
+			0 8px 32px rgba(0, 0, 0, 0.1),
+			inset 0 1px 0 rgba(255, 255, 255, 0.5),
+			inset 0 -1px 0 rgba(255, 255, 255, 0.1),
+			inset 0 0 8px 4px rgba(255, 255, 255, 0.4);
+		position: relative;
+		overflow: hidden;
+		transition: all 0.3s ease;
+	}
+
+	.glass-card-project:hover {
+		background: rgba(255, 255, 255, 0.35);
+		border-color: rgba(255, 255, 255, 0.5);
+		box-shadow: 
+			0 12px 40px rgba(0, 0, 0, 0.15),
+			inset 0 1px 0 rgba(255, 255, 255, 0.6),
+			inset 0 -1px 0 rgba(255, 255, 255, 0.2),
+			inset 0 0 12px 6px rgba(255, 255, 255, 0.5);
+	}
+
+	.glass-card-project::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		height: 1px;
+		background: linear-gradient(
+			90deg,
+			transparent,
+			rgba(255, 255, 255, 0.8),
+			transparent
+		);
+		z-index: 1;
+	}
+
+	.glass-card-project::after {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 1px;
+		height: 100%;
+		background: linear-gradient(
+			180deg,
+			rgba(255, 255, 255, 0.8),
+			transparent,
+			rgba(255, 255, 255, 0.3)
+		);
+		z-index: 1;
+	}
+}
+
+html {
+	height: 100%;
+	width: 100%;
+	overflow-x: hidden;
+	-webkit-overflow-scrolling: touch;
+}
+
+body {
+	padding: 0;
+	margin: 0;
+	padding-top: 70px; /* Add padding for fixed header */
+	font-family: 'GeneralSans-Variable';
+	min-height: 100%;
+	width: 100%;
+	position: relative;
+	overflow-x: hidden;
+	-webkit-overflow-scrolling: touch;
+	/* Impressive Body Theme */
+	background: rgb(13 36 56 / var(--tw-bg-opacity, 1));
+	background-attachment: fixed;
+	position: relative;
+}
+
+/* Responsive padding for fixed header */
+@media (min-width: 640px) {
+	body {
+		padding-top: 90px;
+	}
+}
+
+@media (min-width: 1024px) {
+	body {
+		padding-top: 100px;
+	}
+}
+
+/* Hide scroll indicators and arrows */
+::-webkit-scrollbar {
+	display: none;
+}
+
+/* Hide any custom scroll indicators */
+.scroll-indicator,
+.scroll-arrow,
+[class*="scroll"],
+[class*="arrow"] {
+	display: none !important;
+}
+
+/* Hide any gradient bars or visual indicators on the right */
+.gradient-bar,
+.visual-indicator,
+[class*="gradient"],
+[class*="indicator"] {
+	display: none !important;
+}
+
+/* Glassmorphism Effects */
+.glassmorphism {
+	background: rgba(255, 255, 255, 0.25) !important;
+	box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37) !important;
+	border-radius: 10px !important;
+	border: 2px solid rgba(255, 255, 255, 0.3) !important;
+	backdrop-filter: blur(10px) !important;
+	-webkit-backdrop-filter: blur(10px) !important;
+}
+
+.glass-card {
+	background: rgba(255, 255, 255, 0.2) !important;
+	border: 2px solid rgba(255, 255, 255, 0.3) !important;
+	border-radius: 16px !important;
+	box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.3) !important;
+	transition: all 0.3s ease !important;
+	position: relative !important;
+	backdrop-filter: blur(15px) !important;
+	-webkit-backdrop-filter: blur(15px) !important;
+}
+
+.glass-card:hover {
+	transform: translateY(-5px) !important;
+	box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.4) !important;
+	background: rgba(255, 255, 255, 0.3) !important;
+	border: 2px solid rgba(255, 255, 255, 0.5) !important;
+}
+
+.tech-badge {
+	background: rgba(59, 130, 246, 0.2) !important;
+	border: 1px solid rgba(59, 130, 246, 0.4) !important;
+	color: #3b82f6 !important;
+	padding: 0.25rem 0.75rem !important;
+	border-radius: 9999px !important;
+	font-size: 0.75rem !important;
+	font-weight: 500 !important;
+	transition: all 0.2s ease !important;
+}
+
+.tech-badge:hover {
+	background: rgba(59, 130, 246, 0.3) !important;
+	transform: scale(1.05) !important;
+}
+
+/* Navigation full width */
+nav#nav {
+	max-width: 100%;
+	border-radius: 0;
+}
+
+body::before {
+	content: '';
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background:
+		radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+		radial-gradient(circle at 75% 75%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+		radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+	pointer-events: none;
+	z-index: 1;
+}
+
+body::after {
+	content: '';
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-image:
+		url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cpattern id='grid' width='10' height='10' patternUnits='userSpaceOnUse'%3E%3Cpath d='M 10 0 L 0 0 0 10' fill='none' stroke='rgba(255,255,255,0.03)' stroke-width='0.5'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='100' height='100' fill='url(%23grid)'/%3E%3C/svg%3E");
+	pointer-events: none;
+	z-index: 2;
+	animation: gridMove 20s linear infinite;
+}
+
+@keyframes gridMove {
+	0% {
+		transform: translate(0, 0);
+	}
+
+	100% {
+		transform: translate(10px, 10px);
+	}
+}
+
+#__next {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	z-index: 10;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+/* Fonts */
+@font-face {
+	font-family: 'GeneralSans-Variable';
+	src: url('/fonts/GeneralSans-Variable.woff2') format('woff2'),
+		url('/fonts/GeneralSans-Variable.woff') format('woff'),
+		url('/fonts/GeneralSans-Variable.ttf') format('truetype');
+	font-weight: 200 700;
+	font-display: swap;
+	font-style: normal;
+}
+
+/* Emoji and Flag Support */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Color+Emoji&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Apple+Color+Emoji&display=swap');
+
+/* Enhanced emoji font stack for better cross-platform support */
+.emoji-font {
+	font-family: 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', 'Android Emoji', 'EmojiSymbols', 'EmojiOne Mozilla', 'Twemoji Mozilla', 'Segoe UI Symbol', sans-serif;
+	font-variant-emoji: emoji;
+	-webkit-font-feature-settings: "liga" 1, "kern" 1;
+	font-feature-settings: "liga" 1, "kern" 1;
+}
+
+/* Flag-specific styling for better rendering */
+.flag-emoji {
+	font-family: 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', 'Android Emoji', 'EmojiSymbols', 'EmojiOne Mozilla', 'Twemoji Mozilla', 'Segoe UI Symbol', sans-serif;
+	font-variant-emoji: emoji;
+	font-size: 1.2em;
+	line-height: 1;
+	display: inline-block;
+	vertical-align: middle;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+/* Flag image styling */
+.flag-image {
+	width: 20px;
+	height: 16px;
+	object-fit: cover;
+	border-radius: 2px;
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	display: inline-block;
+	vertical-align: middle;
+}
+
+/* Dark mode flag image styling */
+.dark .flag-image {
+	border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Fallback text styling for flags */
+.flag-text-fallback {
+	font-size: 0.75rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.5px;
+	padding: 2px 6px;
+	border-radius: 3px;
+	background: rgba(0, 0, 0, 0.1);
+	color: #374151;
+	display: inline-block;
+	vertical-align: middle;
+	min-width: 24px;
+	text-align: center;
+}
+
+.dark .flag-text-fallback {
+	background: rgba(255, 255, 255, 0.1);
+	color: #D1D5DB;
+}
+
+.font-general-variable {
+	font-family: 'GeneralSans-Variable';
+}
+
+@font-face {
+	font-family: 'GeneralSans-VariableItalic';
+	src: url('/fonts/GeneralSans-VariableItalic.woff2') format('woff2'),
+		url('/fonts/GeneralSans-VariableItalic.woff') format('woff'),
+		url('/fonts/GeneralSans-VariableItalic.ttf') format('truetype');
+	font-weight: 200 700;
+	font-display: swap;
+	font-style: italic;
+}
+
+.font-general-variable-italic {
+	font-family: 'GeneralSans-VariableItalic';
+}
+
+@font-face {
+	font-family: 'GeneralSans-Extralight';
+	src: url('/fonts/GeneralSans-Extralight.woff2') format('woff2'),
+		url('/fonts/GeneralSans-Extralight.woff') format('woff'),
+		url('/fonts/GeneralSans-Extralight.ttf') format('truetype');
+	font-weight: 200;
+	font-display: swap;
+	font-style: normal;
+}
+
+.font-general-extralight {
+	font-family: 'GeneralSans-Extralight';
+}
+
+@font-face {
+	font-family: 'GeneralSans-ExtralightItalic';
+	src: url('/fonts/GeneralSans-ExtralightItalic.woff2') format('woff2'),
+		url('/fonts/GeneralSans-ExtralightItalic.woff') format('woff'),
+		url('/fonts/GeneralSans-ExtralightItalic.ttf') format('truetype');
+	font-weight: 200;
+	font-display: swap;
+	font-style: italic;
+}
+
+.font-general-extralight-italic {
+	font-family: 'GeneralSans-ExtralightItalic';
+}
+
+@font-face {
+	font-family: 'GeneralSans-Light';
+	src: url('/fonts/GeneralSans-Light.woff2') format('woff2'),
+		url('/fonts/GeneralSans-Light.woff') format('woff'),
+		url('/fonts/GeneralSans-Light.ttf') format('truetype');
+	font-weight: 300;
+	font-display: swap;
+	font-style: normal;
+}
+
+.font-general-light {
+	font-family: 'GeneralSans-Light';
+}
+
+@font-face {
+	font-family: 'GeneralSans-LightItalic';
+	src: url('/fonts/GeneralSans-LightItalic.woff2') format('woff2'),
+		url('/fonts/GeneralSans-LightItalic.woff') format('woff'),
+		url('/fonts/GeneralSans-LightItalic.ttf') format('truetype');
+	font-weight: 300;
+	font-display: swap;
+	font-style: italic;
+}
+
+.font-general-light-italic {
+	font-family: 'GeneralSans-LightItalic';
+}
+
+@font-face {
+	font-family: 'GeneralSans-Regular';
+	src: url('/fonts/GeneralSans-Regular.woff2') format('woff2'),
+		url('/fonts/GeneralSans-Regular.woff') format('woff'),
+		url('/fonts/GeneralSans-Regular.ttf') format('truetype');
+	font-weight: 400;
+	font-display: swap;
+	font-style: normal;
+}
+
+.font-general-regular {
+	font-family: 'GeneralSans-Regular';
+}
+
+@font-face {
+	font-family: 'GeneralSans-Italic';
+	src: url('/fonts/GeneralSans-Italic.woff2') format('woff2'),
+		url('/fonts/GeneralSans-Italic.woff') format('woff'),
+		url('/fonts/GeneralSans-Italic.ttf') format('truetype');
+	font-weight: 400;
+	font-display: swap;
+	font-style: italic;
+}
+
+.font-general-italic {
+	font-family: 'GeneralSans-Italic';
+}
+
+@font-face {
+	font-family: 'GeneralSans-Medium';
+	src: url('/fonts/GeneralSans-Medium.woff2') format('woff2'),
+		url('/fonts/GeneralSans-Medium.woff') format('woff'),
+		url('/fonts/GeneralSans-Medium.ttf') format('truetype');
+	font-weight: 500;
+	font-display: swap;
+	font-style: normal;
+}
+
+.font-general-medium {
+	font-family: 'GeneralSans-Medium';
+}
+
+@font-face {
+	font-family: 'GeneralSans-MediumItalic';
+	src: url('/fonts/GeneralSans-MediumItalic.woff2') format('woff2'),
+		url('/fonts/GeneralSans-MediumItalic.woff') format('woff'),
+		url('/fonts/GeneralSans-MediumItalic.ttf') format('truetype');
+	font-weight: 500;
+	font-display: swap;
+	font-style: italic;
+}
+
+.font-general-medium-italic {
+	font-family: 'GeneralSans-MediumItalic';
+}
+
+@font-face {
+	font-family: 'GeneralSans-Semibold';
+	src: url('/fonts/GeneralSans-Semibold.woff2') format('woff2'),
+		url('/fonts/GeneralSans-Semibold.woff') format('woff'),
+		url('/fonts/GeneralSans-Semibold.ttf') format('truetype');
+	font-weight: 600;
+	font-display: swap;
+	font-style: normal;
+}
+
+.font-general-semibold {
+	font-family: 'GeneralSans-Semibold';
+}
+
+@font-face {
+	font-family: 'GeneralSans-SemiboldItalic';
+	src: url('/fonts/GeneralSans-SemiboldItalic.woff2') format('woff2'),
+		url('/fonts/GeneralSans-SemiboldItalic.woff') format('woff'),
+		url('/fonts/GeneralSans-SemiboldItalic.ttf') format('truetype');
+	font-weight: 600;
+	font-display: swap;
+	font-style: italic;
+}
+
+.font-general-semibold-italic {
+	font-family: 'GeneralSans-SemiboldItalic';
+}
+
+@font-face {
+	font-family: 'GeneralSans-Bold';
+	src: url('/fonts/GeneralSans-Bold.woff2') format('woff2'),
+		url('/fonts/GeneralSans-Bold.woff') format('woff'),
+		url('/fonts/GeneralSans-Bold.ttf') format('truetype');
+	font-weight: 700;
+	font-display: swap;
+	font-style: normal;
+}
+
+.font-general-bold {
+	font-family: 'GeneralSans-Bold';
+}
+
+@font-face {
+	font-family: 'GeneralSans-BoldItalic';
+	src: url('/fonts/GeneralSans-BoldItalic.woff2') format('woff2'),
+		url('/fonts/GeneralSans-BoldItalic.woff') format('woff'),
+		url('/fonts/GeneralSans-BoldItalic.ttf') format('truetype');
+	font-weight: 700;
+	font-display: swap;
+	font-style: italic;
+}
+
+.font-general-bold-italic {
+	font-family: 'GeneralSans-BoldItalic';
+}
+
+/* Urdu Font */
+.font-urdu {
+	font-family: 'Noto Nastaliq Urdu', serif;
+}
+
+/* Language-specific body styling */
+body.lang-urdu {
+	font-family: 'Noto Nastaliq Urdu', serif;
+	direction: rtl;
+	text-align: right;
+}
+
+body.lang-urdu * {
+	font-family: 'Noto Nastaliq Urdu', serif;
+}
+
+/* Override for specific elements that should stay LTR */
+body.lang-urdu .lang-neutral {
+	direction: ltr;
+	text-align: left;
+}
+
+/* Scroll to top style */
+.scrollToTop {
+	@apply bg-indigo-600;
+	@apply text-white;
+	position: fixed;
+	width: 100%;
+	align-items: center;
+	height: 20px;
+	justify-content: center;
+	z-index: 999;
+	cursor: pointer;
+	animation: fadeIn 0.3s;
+	transition: opacity 0.4s;
+	opacity: 1;
+}
+
+.scrollToTop:hover {
+	opacity: 1;
+}
+
+.hidden.md\:flex {
+	display: none;
+}
+
+.block.text-left.text-base.sm\:text-lg.font-medium.text-primary-dark.dark\:text-ternary-light.hover\:text-secondary-dark.dark\:hover\:text-secondary-light.hover\:underline {
+	text-decoration: none;
+}
+
+@keyframes fadeIn {
+	0% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 0.5;
+	}
+}
+
+/* Container and layout improvements */
+.container {
+	max-width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: 1rem;
+	padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+	.container {
+		max-width: 640px;
+		padding-left: 1.5rem;
+		padding-right: 1.5rem;
+	}
+}
+
+@media (min-width: 768px) {
+	.container {
+		max-width: 768px;
+	}
+}
+
+@media (min-width: 1024px) {
+	.container {
+		max-width: 1024px;
+		padding-left: 2rem;
+		padding-right: 2rem;
+	}
+}
+
+@media (min-width: 1280px) {
+	.container {
+		max-width: 1280px;
+	}
+	.xl\:max-w-screen-xl {
+		max-width: 100% !important;
+	}
+}
+
+@media (min-width: 1536px) {
+	.container {
+		max-width: 1536px;
+	}
+}
+
+/* Custom purple color for Full Stack Development icon */
+svg.text-4xl.text-violet-400 {
+	color: #9b51e0;
+}
+
+/* Urdu language font size adjustments */
+[data-lang="ur"] {
+	font-size: 0.9em;
+}
+
+[data-lang="ur"] h1 {
+	font-size: 0.85em;
+}
+
+[data-lang="ur"] h2 {
+	font-size: 0.85em;
+}
+
+[data-lang="ur"] h3 {
+	font-size: 0.85em;
+}
+
+[data-lang="ur"] h4 {
+	font-size: 0.85em;
+}
+
+[data-lang="ur"] h5 {
+	font-size: 0.85em;
+}
+
+[data-lang="ur"] h6 {
+	font-size: 0.85em;
+}
+
+[data-lang="ur"] p {
+	font-size: 0.9em;
+}
+
+[data-lang="ur"] .text-lg {
+	font-size: 1rem !important;
+}
+
+[data-lang="ur"] .text-xl {
+	font-size: 1.125rem !important;
+}
+
+[data-lang="ur"] .text-2xl {
+	font-size: 1.25rem !important;
+}
+
+[data-lang="ur"] .text-3xl {
+	font-size: 1.5rem !important;
+}
+
+[data-lang="ur"] .text-4xl {
+	font-size: 1.75rem !important;
+}
+
+[data-lang="ur"] .text-5xl {
+	font-size: 2rem !important;
+}
+
+[data-lang="ur"] .text-6xl {
+	font-size: 2.25rem !important;
+}
+
+/* Japanese language font support */
+body.lang-jp {
+	font-family: 'GeneralSans-Variable', 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Meiryo', sans-serif;
+}
+
+body.lang-jp * {
+	font-family: 'GeneralSans-Variable', 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Meiryo', sans-serif;
+}
+
+/* Japanese font size adjustments */
+[data-lang="jp"] {
+	font-size: 1em;
+}
+
+[data-lang="jp"] h1 {
+	font-size: 1em;
+}
+
+[data-lang="jp"] h2 {
+	font-size: 1em;
+}
+
+[data-lang="jp"] h3 {
+	font-size: 1em;
+}
+
+[data-lang="jp"] .text-lg {
+	font-size: 1.125rem !important;
+}
+
+[data-lang="jp"] .text-xl {
+	font-size: 1.25rem !important;
+}
+
+[data-lang="jp"] .text-2xl {
+	font-size: 1.5rem !important;
+}
+
+[data-lang="jp"] .text-3xl {
+	font-size: 1.875rem !important;
+}
+
+[data-lang="jp"] .text-4xl {
+	font-size: 2.25rem !important;
+}
+
+[data-lang="jp"] .text-5xl {
+	font-size: 3rem !important;
+}
+
+/* Hindi language font support */
+body.lang-hin {
+	font-family: 'GeneralSans-Variable', 'Noto Sans Devanagari', 'Mangal', 'Devanagari Sangam MN', sans-serif;
+}
+
+body.lang-hin * {
+	font-family: 'GeneralSans-Variable', 'Noto Sans Devanagari', 'Mangal', 'Devanagari Sangam MN', sans-serif;
+}
+
+/* Hindi font size adjustments */
+[data-lang="hin"] {
+	font-size: 1em;
+}
+
+[data-lang="hin"] h1 {
+	font-size: 1em;
+}
+
+[data-lang="hin"] h2 {
+	font-size: 1em;
+}
+
+[data-lang="hin"] h3 {
+	font-size: 1em;
+}
+
+[data-lang="hin"] .text-lg {
+	font-size: 1.125rem !important;
+}
+
+[data-lang="hin"] .text-xl {
+	font-size: 1.25rem !important;
+}
+
+[data-lang="hin"] .text-2xl {
+	font-size: 1.5rem !important;
+}
+
+[data-lang="hin"] .text-3xl {
+	font-size: 1.875rem !important;
+}
+
+[data-lang="hin"] .text-4xl {
+	font-size: 2.25rem !important;
+}
+
+[data-lang="hin"] .text-5xl {
+	font-size: 3rem !important;
+}
+
+/* Skills Slider Animation - Ultra Smooth */
+.skills-slider-container {
+	overflow: hidden;
+	position: relative;
+	width: 100%;
+	padding: 20px 0;
+	mask: linear-gradient(
+		90deg,
+		transparent 0%,
+		black 10%,
+		black 90%,
+		transparent 100%
+	);
+	-webkit-mask: linear-gradient(
+		90deg,
+		transparent 0%,
+		black 10%,
+		black 90%,
+		transparent 100%
+	);
+}
+
+.skills-slider {
+	display: flex;
+	gap: 3rem;
+	animation: skillsScrollSmooth 50s linear infinite;
+	width: fit-content;
+	will-change: transform;
+	backface-visibility: hidden;
+	perspective: 1000px;
+	transform: translateZ(0);
+}
+
+.skills-slider:hover {
+	animation-play-state: paused;
+	transition: animation-play-state 0.3s ease;
+}
+
+.skill-item {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	min-width: 140px;
+	flex-shrink: 0;
+	transform: translateZ(0);
+	transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+	opacity: 0.8;
+}
+
+.skill-item:hover {
+	transform: translateY(-8px) scale(1.05) translateZ(0);
+	opacity: 1;
+	z-index: 10;
+	position: relative;
+}
+
+.skill-item .bg-secondary-light,
+.skill-item .dark\\:bg-secondary-dark {
+	transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+	border: 2px solid transparent;
+}
+
+.skill-item:hover .bg-secondary-light,
+.skill-item:hover .dark\\:bg-secondary-dark {
+	border-color: rgba(59, 130, 246, 0.3);
+	box-shadow: 
+		0 20px 40px rgba(0, 0, 0, 0.1),
+		0 0 0 1px rgba(59, 130, 246, 0.1),
+		inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+@keyframes skillsScrollSmooth {
+	0% {
+		transform: translateX(0) translateZ(0);
+	}
+	100% {
+		transform: translateX(-50%) translateZ(0);
+	}
+}
+
+/* Enhanced skill item animations */
+.skill-item h4,
+.skill-item p {
+	transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.skill-item:hover h4 {
+	transform: translateY(-2px);
+	color: rgb(59 130 246);
+}
+
+.skill-item:hover p {
+	transform: translateY(-1px);
+	opacity: 0.9;
+}
+
+/* Smooth fade edges */
+.skills-slider-container::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100px;
+	height: 100%;
+	background: linear-gradient(
+		90deg,
+		var(--tw-bg-opacity, 1) 0%,
+		transparent 100%
+	);
+	z-index: 10;
+	pointer-events: none;
+}
+
+.skills-slider-container::after {
+	content: '';
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 100px;
+	height: 100%;
+	background: linear-gradient(
+		90deg,
+		transparent 0%,
+		var(--tw-bg-opacity, 1) 100%
+	);
+	z-index: 10;
+	pointer-events: none;
+}
+
+/* Enhanced smooth scrolling performance */
+@media (prefers-reduced-motion: no-preference) {
+	.skills-slider {
+		animation-duration: 50s;
+		animation-timing-function: linear;
+		animation-iteration-count: infinite;
+		animation-fill-mode: both;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.skills-slider {
+		animation: none;
+	}
+	
+	.skill-item {
+		opacity: 1;
+	}
+}
+
+/* GPU acceleration for ultra-smooth performance */
+.skills-slider,
+.skill-item,
+.skill-item > div {
+	-webkit-transform: translateZ(0);
+	-moz-transform: translateZ(0);
+	-ms-transform: translateZ(0);
+	-o-transform: translateZ(0);
+	transform: translateZ(0);
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;
+	-ms-backface-visibility: hidden;
+	backface-visibility: hidden;
+	-webkit-perspective: 1000;
+	-moz-perspective: 1000;
+	-ms-perspective: 1000;
+	perspective: 1000;
+}
+
+/* Smooth transitions for all interactive elements */
+.skill-item * {
+	transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Fallback for older animation classes */
+.auto-scroll {
+	animation: skillsScrollSmooth 50s linear infinite;
+}
+
+.pause-animation {
+	animation-play-state: paused;
+}

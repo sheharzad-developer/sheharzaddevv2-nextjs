@@ -1,0 +1,66 @@
+EMAILJS SETUP INSTRUCTIONS FOR SHEHARZAD'S PORTFOLIO
+===================================================
+
+🎯 PROBLEM SOLVED: Your Next.js is using static export which doesn't support API routes.
+EmailJS works perfectly with static sites!
+
+📧 SETUP STEPS:
+
+1. CREATE EMAILJS ACCOUNT
+   - Go to https://www.emailjs.com/
+   - Sign up for free account
+   - Verify your email
+
+2. ADD EMAIL SERVICE
+   - Go to Email Services → Add New Service
+   - Choose "Outlook" or "Gmail" 
+   - Connect your sheharzad.salahuddin9000@outlook.com
+   - Note the SERVICE ID (e.g., "service_abc123")
+
+3. CREATE EMAIL TEMPLATE
+   - Go to Email Templates → Create New Template
+   - Template content:
+   
+   Subject: New Hire Request: {{project_type}}
+   
+   Body:
+   New Hire Request from {{from_name}}
+   
+   Name: {{from_name}}
+   Email: {{from_email}}
+   Project Type: {{project_type}}
+   Message: {{message}}
+   
+   This email was sent from your portfolio website.
+   
+   - Note the TEMPLATE ID (e.g., "template_xyz789")
+
+4. GET PUBLIC KEY
+   - Go to Account → General
+   - Copy your PUBLIC KEY (e.g., "user_1a2b3c4d5e")
+
+5. UPDATE YOUR CODE
+   Replace these placeholders in components/HireMeModal.jsx:
+   
+   const serviceId = 'your_service_id_here';
+   const templateId = 'your_template_id_here';  
+   const publicKey = 'your_public_key_here';
+
+6. TEST THE FORM
+   - Your hire me form should now work!
+   - Emails will be sent to sheharzad.salahuddin9000@outlook.com
+   - No server configuration needed
+
+🚀 BENEFITS:
+✅ Works with static export
+✅ No backend needed
+✅ Free tier: 200 emails/month
+✅ Easy to set up
+✅ Reliable delivery
+
+💡 TIPS:
+- Keep your keys safe (they're public keys, so it's okay)
+- You can add auto-replies and custom templates
+- EmailJS handles all the SMTP complexity for you
+
+Need help? Check the EmailJS documentation: https://www.emailjs.com/docs/ 
