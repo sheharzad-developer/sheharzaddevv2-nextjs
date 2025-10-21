@@ -210,7 +210,7 @@ function ProjectSingle() {
 
 	// Redirect if language is not supported
 	useEffect(() => {
-		const availableLanguages = ['en', 'es', 'fr', 'de', 'ur', 'jp', 'hin', 'chin', 'aus'];
+		const availableLanguages = ['en', 'es', 'fr', 'de', 'ur', 'jp', 'hin', 'chin', 'aus', 'russ', 'ar'];
 		if (lang && !availableLanguages.includes(lang)) {
 			router.replace(`/en/projects/${id}`);
 		}
@@ -379,7 +379,7 @@ export default ProjectSingle;
 
 // Generate static paths for all supported languages and projects
 export async function getStaticPaths() {
-	const languages = ['en', 'es', 'fr', 'de', 'ur', 'jp', 'hin', 'chin', 'aus'];
+	const languages = ['en', 'es', 'fr', 'de', 'ur', 'jp', 'hin', 'chin', 'aus', 'russ', 'ar'];
 	const paths = [];
 
 	// Generate paths for each language and project combination

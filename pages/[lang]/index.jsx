@@ -13,7 +13,7 @@ function Home() {
 
 	// Redirect if language is not supported
 	useEffect(() => {
-		const availableLanguages = ['en', 'es', 'fr', 'de', 'ur', 'jp', 'hin', 'chin', 'aus', 'russ'];
+		const availableLanguages = ['en', 'es', 'fr', 'de', 'ur', 'jp', 'hin', 'chin', 'aus', 'russ', 'ar'];
 		if (lang && !availableLanguages.includes(lang)) {
 			router.replace('/en');
 		}
@@ -41,7 +41,7 @@ export default Home;
 
 // Generate static paths for all supported languages
 export async function getStaticPaths() {
-	const languages = ['en', 'es', 'fr', 'de', 'ur', 'jp', 'hin', 'chin', 'aus', 'russ'];
+	const languages = ['en', 'es', 'fr', 'de', 'ur', 'jp', 'hin', 'chin', 'aus', 'russ', 'ar'];
 	const paths = languages.map((lang) => ({
 		params: { lang }
 	}));

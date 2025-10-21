@@ -53,6 +53,11 @@ const languages = [
 		code: 'russ',
 		name: 'Русский',
 		flag: '🇷🇺'
+	},
+	{
+		code: 'ar',
+		name: 'العربية',
+		flag: '🇸🇦'
 	}
 ];
 
